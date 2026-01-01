@@ -5,7 +5,6 @@ using namespace std;
 int main(){
 const int size=20
 char student[size];
-int totalintake=0,totalenroll=0,totaloutput=0;
 int intake[size],enrollement[size],output[size]
 getInput(.......);
 calTotal(..........);
@@ -23,11 +22,13 @@ while(infile>>STUDENT[i]>>INTAKE[i]>>ENROLLMENT[i]>>OUTPUT[i]){
 i++;
 }
 }
-void calTotal(){
+int calTotal(){
+int totalintake=0,totalenroll=0,totaloutput=0;
 for(int a=0;a<size;a++){
 totalintake+=intake[a];
 totalenroll+=enroll[a];
 totaloutput+=output[a];
+return totalintake,totalenroll,totaloutput;
 }
 }
 void getLowest(){}
