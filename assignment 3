@@ -11,8 +11,14 @@ getInput()
 
 
 }
-void getInput(){
-ifstream infile("input.txt")
+void getInput(STUDENT[],INTAKE[],ENROLLMENT[],OUTPUT[]){
+int i;
+ifstream infile("input.txt");
+if(!infile){
+cout<<"fail to open the file";
+return 0;
+}
+while(
 }
 void getLowest(){}
 void calTotal(){}
