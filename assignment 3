@@ -3,7 +3,8 @@
 #include<iomanip>
 using namespace std;
 int main(){
-
+const int size=20
+char student
 getInput()
 
 
