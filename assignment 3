@@ -6,7 +6,7 @@ int main(){
 const int size=20
 char student[size];
 int intake[size],enrollement[size],output[size]
-getInput()
+getInput(.......)
 
 
 
@@ -18,7 +18,7 @@ if(!infile){
 cout<<"fail to open the file";
 return 0;
 }
-while(
+while(infile>>STUDENT[]>>INTAKE[]>>ENROLLMENT[]>>OUTPUT[])
 }
 void getLowest(){}
 void calTotal(){}
