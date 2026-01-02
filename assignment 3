@@ -5,7 +5,7 @@ using namespace std;
 int main(){
 const int size=20
 char student[size];
-int intake[size],enrollement[size],output[size],index,index2;
+int intake[size],enrollement[size],output[size],index,index2,student,intake,enroll,output;
 int totalintake=0,totalenroll=0,totaloutput=0;
 getInput(.......);
 totalintake=calTotal(intake,size);
@@ -17,6 +17,12 @@ index=getLowest(output,size);
 index2=getHighest(intake,size);
 index2=getHighest(enrollment,size);
 index2=getHighest(output,size);
+ifstream infile("input.txt");
+ofstream outfile("output.txt");
+outFile << left << setw(10) << "UNIVERSITY"<< right << setw(10) << "INTAKE"<< setw(12) << "ENROLMENT"<< setw(10) << "OUTPUT" << endl;
+while(infile<<student<<intake<<enroll<<output){
+outfile<<student<<" "<<intake<<" "<<enroll<<" "<<output<<endl;
+}
 }
 void getInput(STUDENT[],INTAKE[],ENROLLMENT[],OUTPUT[]){
 int i=0;
