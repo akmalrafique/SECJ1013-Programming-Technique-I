@@ -5,7 +5,7 @@ using namespace std;
 int main(){
 const int size=20
 char student[size];
-int intake[size],enrollement[size],output[size];
+int intake[size],enrollement[size],output[size],index,index2;
 int totalintake=0,totalenroll=0,totaloutput=0;
 getInput(.......);
 totalintake=calTotal(intake,size);
@@ -14,6 +14,9 @@ totaloutput=calTotal(output,size);
 index=getLowest(intake,size);
 index=getLowest(enrollment,size);
 index=getLowest(output,size);
+index2=getHighest(intake,size);
+index2=getHighest(enrollment,size);
+index2=getHighest(output,size);
 }
 void getInput(STUDENT[],INTAKE[],ENROLLMENT[],OUTPUT[]){
 int i=0;
