@@ -11,9 +11,9 @@ getInput(.......);
 totalintake=calTotal(intake,size);
 totalenroll=calTotal(enrollement,size);
 totaloutput=calTotal(output,size);
-index=getLowest(student,intake,size);
-index=getLowest(student,enrollment,size);
-index=getLowest(student,output,size);
+index=getLowest(intake,size);
+index=getLowest(enrollment,size);
+index=getLowest(output,size);
 }
 void getInput(STUDENT[],INTAKE[],ENROLLMENT[],OUTPUT[]){
 int i=0;
@@ -33,10 +33,13 @@ totall+=total[a];
 }
 return totall;
 }
-int getLowest(char STUDENT[],int ARRAY[],int SIZE){
-int lowest=-1;
-while(int i=0;i<SIZE;i++){
-
+int getLowest(,int ARRAY[],int SIZE){
+int lowest=9999;
+for(int i=0;i<SIZE;i++){
+if(ARRAY[i]<lowest){
+lowest=ARRAY[i];
+}
+return i;
 }
 
 
