@@ -7,14 +7,16 @@ const int size=20
 char student[size];
 int intake[size],enrollement[size],output[size],index,index2,student,intake,enroll,output;
 int totalintake=0,totalenroll=0,totaloutput=0;
-getInput(.......);
+getInput(student,intake,enrollment,output);
 totalintake=calTotal(intake,size);
 totalenroll=calTotal(enrollement,size);
 totaloutput=calTotal(output,size);
-
 ifstream infile("input.txt");
 ofstream outfile("output.txt");
+outfile<<"NUMBER OF STUDENTS' INTAKE, ENROLMENT AND OUTPUT IN PUBLIC UNIVERSITIES (2015)"<<endl;
+outfile<<"--------------------------------------------------------------------------------"<<endl;
 outFile << left << setw(10) << "UNIVERSITY"<< right << setw(10) << "INTAKE"<< setw(12) << "ENROLMENT"<< setw(10) << "OUTPUT" << endl;
+outfile<<"--------------------------------------------------------------------------------"<<endl;
 while(infile<<student<<intake<<enroll<<output){
 outfile<< left << setw(10)<<student<< right << setw(10)<<" "<<intake<< setw(10)<<enroll<<setw(10)<<output<<endl;
 }
@@ -40,7 +42,7 @@ outfile<<"----------------------------------------------------------------------
 }
 
 
-int getInput(STUDENT[],INTAKE[],ENROLLMENT[],OUTPUT[]){
+void getInput(STUDENT[],INTAKE[],ENROLLMENT[],OUTPUT[]){
 int i=0;
 ifstream infile("input.txt");
 if(!infile){
