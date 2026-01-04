@@ -2,56 +2,65 @@
 #include<fstream>
 #include<iomanip>
 using namespace std;
+int getInput(char[][10],int[],int[],int[]);
+int calTotal(int[],int);
+int getLowest(int[],int);
+int getHighest(int[],int);
 int main(){
-const int size=20
-char student[size];
-int intake[size],enrollement[size],output[size],index,index2,student,intake,enroll,output;
+const int size=20;
+char student[size][10],xstudent[10];
+int intake[size],enrolment[size],output[size],index,index2,xintake,xenroll,xoutput,list;
 int totalintake=0,totalenroll=0,totaloutput=0;
-getInput(student,intake,enrollment,output);
-totalintake=calTotal(intake,size);
-totalenroll=calTotal(enrollement,size);
-totaloutput=calTotal(output,size);
+list=getInput(student,intake,enrolment,output);
+totalintake=calTotal(intake,list);
+totalenroll=calTotal(enrolment,list);
+totaloutput=calTotal(output,list);
 ifstream infile("input.txt");
 ofstream outfile("output.txt");
-outfile<<"NUMBER OF STUDENTS' INTAKE, ENROLMENT AND OUTPUT IN PUBLIC UNIVERSITIES (2015)"<<endl;
+outfile<<"NUMBER OF STUDENTS' INTAKE, ENROLMENT AND OUTPUT\n         IN PUBLIC UNIVERSITIES (2015)"<<endl;
 outfile<<"--------------------------------------------------------------------------------"<<endl;
-outFile << left << setw(10) << "UNIVERSITY"<< right << setw(10) << "INTAKE"<< setw(12) << "ENROLMENT"<< setw(10) << "OUTPUT" << endl;
+outfile <<left<<setw(10)<<"UNIVERSITY"<<right<<setw(15)<< "INTAKE"<<right<<setw(12)<<"ENROLMENT"<<setw(10) << "OUTPUT" << endl;
 outfile<<"--------------------------------------------------------------------------------"<<endl;
-while(infile<<student<<intake<<enroll<<output){
-outfile<< left << setw(10)<<student<< right << setw(10)<<" "<<intake<< setw(10)<<enroll<<setw(10)<<output<<endl;
+while(infile>>xstudent>>xintake>>xenroll>>xoutput){
+outfile<< left << setw(10)<<xstudent<< right << setw(10)<<" "<<xintake<< setw(10)<<xenroll<<setw(10)<<xoutput<<endl;
 }
 outfile<<"--------------------------------------------------------------------------------"<<endl;
-cout<<"total"<<setw(6)<<totalintake<<setw(6)<<totalenroll<<setw(6)<<totaloutput<<endl;
-cout<<"averagae"<<setw(6)<<totalintake/size<<setw(6)<<totalenroll/size<<setw(6)<<totaloutput/size<<endl;
-int lowIntake = getLowest(intake, size);
-int lowEnrol = getLowest(enrol, size);
-int lowOutput = getLowest(output, size);
-int highIntake = getHighest(intake, size);
-int highEnrol = getHighest(enrol, size);
-int highOutput = getHighest(output, size);
-outFile<< "\nTHE LOWEST NUMBER OF STUDENTS' INTAKE = "<< intake[lowIntake] << " (" << uni[lowIntake] << ")\n";
-outFile<< "THE LOWEST NUMBER OF STUDENTS' ENROLMENT = "<< enrol[lowEnrol] << " (" << uni[lowEnrol] << ")\n";
-outFile<< "THE LOWEST NUMBER OF STUDENTS' OUTPUT = "<< output[lowOutput] << " (" << uni[lowOutput] << ")\n\n";
-outFile<< "THE HIGHEST NUMBER OF STUDENTS' INTAKE = "<< intake[highIntake] << " (" << uni[highIntake] << ")\n";
-outFile<< "THE HIGHEST NUMBER OF STUDENTS' ENROLMENT = "<< enrol[highEnrol] << " (" << uni[highEnrol] << ")\n";
-outFile<< "THE HIGHEST NUMBER OF STUDENTS' OUTPUT = "<< output[highOutput] << " (" << uni[highOutput] << ")\n\n";
-outFile<< "THE RANGE OF NUMBER OF STUDENTS' INTAKE = "<< intake[highIntake] - intake[lowIntake] << endl;
-outFile<< "THE RANGE OF NUMBER OF STUDENTS' ENROLMENT = "<< enrol[highEnrol] - enrol[lowEnrol] << endl;
-outFile<< "THE RANGE OF NUMBER OF STUDENTS' OUTPUT = "<< output[highOutput] - output[lowOutput] << endl<<endl;
+outfile<<"total"<<right<<setw(20)<<totalintake<<right<<setw(10)<<totalenroll<<right<<setw(10)<<totaloutput<<endl;
+outfile << fixed << setprecision(2);
+outfile<<"average"<<right<<setw(20)<<(float)totalintake/list<<right<<setw(10)<<(float)totalenroll/list<<right<<setw(10)<<(float)totaloutput/list<<endl;
 outfile<<"--------------------------------------------------------------------------------"<<endl;
+int lowIntake = getLowest(intake, list);
+int lowEnrol = getLowest(enrolment, list);
+int lowOutput = getLowest(output, list);
+int highIntake = getHighest(intake, list);
+int highEnrol = getHighest(enrolment, list);
+int highOutput = getHighest(output, list);
+outfile<< "\nTHE LOWEST NUMBER OF STUDENTS' INTAKE = "<< intake[lowIntake] << " (" << student[lowIntake] << ")\n";
+outfile<< "THE LOWEST NUMBER OF STUDENTS' ENROLMENT = "<< enrolment[lowEnrol] << " (" << student[lowEnrol] << ")\n";
+outfile<< "THE LOWEST NUMBER OF STUDENTS' OUTPUT = "<< output[lowOutput] << " (" << student[lowOutput] << ")\n\n";
+outfile<< "THE HIGHEST NUMBER OF STUDENTS' INTAKE = "<< intake[highIntake] << " (" << student[highIntake] << ")\n";
+outfile<< "THE HIGHEST NUMBER OF STUDENTS' ENROLMENT = "<< enrolment[highEnrol] << " (" << student[highEnrol] << ")\n";
+outfile<< "THE HIGHEST NUMBER OF STUDENTS' OUTPUT = "<< output[highOutput] << " (" << student[highOutput] << ")\n\n";
+outfile<< "THE RANGE OF NUMBER OF STUDENTS' INTAKE = "<< intake[highIntake] - intake[lowIntake] << endl;
+outfile<< "THE RANGE OF NUMBER OF STUDENTS' ENROLMENT = "<< enrolment[highEnrol] - enrolment[lowEnrol] << endl;
+outfile<< "THE RANGE OF NUMBER OF STUDENTS' OUTPUT = "<< output[highOutput] - output[lowOutput] << endl<<endl;
+outfile<<"--------------------------------------------------------------------------------"<<endl;
+return 0;
 }
 
 
-void getInput(STUDENT[],INTAKE[],ENROLLMENT[],OUTPUT[]){
-int i=0;
+int getInput(char STUDENT[][10],int INTAKE[],int ENROLMENT[],int OUTPUT[]){
+int i=0,list=0;
 ifstream infile("input.txt");
 if(!infile){
 cout<<"fail to open the file";
 return 0;
 }
-while(infile>>STUDENT[i]>>INTAKE[i]>>ENROLLMENT[i]>>OUTPUT[i]){
+while(infile>>STUDENT[i]>>INTAKE[i]>>ENROLMENT[i]>>OUTPUT[i]){
 i++;
+list++;
 }
+return list;
 }
 int calTotal( int total[],int SIZE){
 int totall=0;
@@ -80,4 +89,5 @@ highindex=i;
 }
 return highindex;
 }
+
 
