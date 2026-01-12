@@ -1,5 +1,5 @@
-//NAME:AKMAL RAFIQUE BIN AHMAD RAPHAIE..
-//matrics number:A25CS0181
+//NAME:AKMAL RAFIQUE BIN AHMAD RAPHAIE.
+//matrics number:A25CS0181.
 //date:9/1/26
 #include<iostream>
 #include<fstream>
@@ -73,4 +73,5 @@ void writeFile(float tempC[],float tempF[],int DATA){
     }
 
 }
+
 
